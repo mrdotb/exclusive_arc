@@ -21,7 +21,7 @@ defmodule ExclusiveArc.ACL do
     |> Changeset.cast(attrs, [:level])
     |> Changeset.validate_required([:level])
     |> assoc_media(media)
-    |> Changeset.check_constraint(:check_exclusive, :check_exclusive)
+    |> Changeset.check_constraint(:check_exclusive, name: :check_exclusive)
   end
 
   defp assoc_media(changeset, %Document{} = document) do
